@@ -1,0 +1,3 @@
+[submodule "echo3"]
+	path = echo3
+	url = https://github.com/echo3/echo3.git
