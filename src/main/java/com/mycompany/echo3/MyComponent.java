@@ -30,6 +30,7 @@
 package com.mycompany.echo3;
 
 import nextapp.echo.app.Color;
+import nextapp.echo.app.Component;
 import nextapp.echo.app.Insets;
 import nextapp.echo.app.Table;
 import nextapp.echo.webcontainer.SynchronizePeerFactory;
@@ -38,15 +39,16 @@ import nextapp.echo.webcontainer.SynchronizePeerFactory;
 /**
  * A simple demo component
  * 
+ * @author chrismay
  */
-public class MyComponent extends Table {
+public class MyComponent extends Component {
     
     static {
         SynchronizePeerFactory.registerSynchronizePeer(MyComponent.class, new MyComponentPeer());   
     }
 
-    public static final String PROPERTY_RADIUS = "radius";
-    public static final String PROPERTY_BACKGROUND = "background";
+    private static final String PROPERTY_RADIUS = "radius";
+    private static final String PROPERTY_BACKGROUND = "background";
     
     
     /**
@@ -67,10 +69,20 @@ public class MyComponent extends Table {
         set(PROPERTY_RADIUS, newValue);
     }
 
+    /**
+     * Get the background color of the component
+     * 
+     * @return the current background color
+     */
     public Color getBackground() {
         return (Color)get(PROPERTY_BACKGROUND);
     }
 
+    /**
+     * Get the border radius of the component
+     * 
+     * @return the current radius
+     */
     public Insets getRadius() {
         return (Insets)get(PROPERTY_RADIUS);
     }

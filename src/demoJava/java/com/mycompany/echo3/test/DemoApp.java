@@ -1,6 +1,6 @@
 /* 
  * This file is part of the Echo Web Application Framework (hereinafter "Echo").
- * Copyright (C) 2002-2009 NextApp, Inc.
+ * Copyright (C) 2002-2013 NextApp, Inc.
  *
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -32,19 +32,20 @@ package com.mycompany.echo3.test;
 import nextapp.echo.app.ApplicationInstance;
 import nextapp.echo.app.Window;
 
-
+/**
+ * Demo application instance for testing custom components
+ * 
+ * @author chrismay
+ */
 public class DemoApp extends ApplicationInstance {
 
     private Window mainWindow;
 
     @Override
     public Window init() {
-//        setStyleSheet(Styles.DEFAULT_STYLE_SHEET);
         mainWindow = new Window();
         mainWindow.setTitle("Demo Application");
         mainWindow.setContent(new DemoPane());
         return mainWindow;
     }   
-    
-  
 }

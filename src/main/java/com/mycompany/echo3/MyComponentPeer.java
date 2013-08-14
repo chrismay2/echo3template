@@ -29,26 +29,18 @@
 
 package com.mycompany.echo3;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
 import nextapp.echo.app.Component;
-import nextapp.echo.app.update.ClientUpdateManager;
-import nextapp.echo.app.update.ServerComponentUpdate;
 import nextapp.echo.app.util.Context;
 import nextapp.echo.webcontainer.AbstractComponentSynchronizePeer;
-import nextapp.echo.webcontainer.ContentType;
 import nextapp.echo.webcontainer.ServerMessage;
 import nextapp.echo.webcontainer.Service;
 import nextapp.echo.webcontainer.WebContainerServlet;
 import nextapp.echo.webcontainer.service.JavaScriptService;
-import nextapp.echo.webcontainer.util.MultiIterator;
 
 /**
  * Synchronization peer for <code>Table</code>s.
  * 
- * @author n.beekman
+ * @author chrismay
  */
 public class MyComponentPeer extends AbstractComponentSynchronizePeer {
 

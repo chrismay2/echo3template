@@ -8,14 +8,20 @@ init = function() {
     client.init();
 };
 
+/**
+ * Test application for demo'ing the custom component
+ */
 TestApp = Core.extend(Echo.Application, {
 
     _mainSplitPane: null,
     _cboColor: null,
+    _chkRadius: null,    
     
     $construct: function() {
+    	//call super constructor
         Echo.Application.call(this);
         
+        //build basic UI
         var contentPane = new Echo.ContentPane();
         this.rootComponent.add(contentPane);
 
@@ -32,18 +38,18 @@ TestApp = Core.extend(Echo.Application, {
         //define action listener
         var that = this;
         var doAction = function(e) {
-            that._showTable();
+            that._reloadComponent();
         };
 
+        //checkbox for switching on/off the radius
         this._chkRadius = new Echo.CheckBox({
             selected: false,
-            text: "Radius 8px",
-            events: {
-                action: doAction
-            }
+            text: "Radius 10px",
+            events: { action: doAction }
         });
         controlsColumn.add(this._chkRadius);
 
+        //combo box for selecting the color
         var cboColorAttr = {};
         cboColorAttr.items = [{
             text: "Green",
@@ -54,31 +60,30 @@ TestApp = Core.extend(Echo.Application, {
         }, {
             text: "Light gray",
             id: "#dddddd"
-        }];
-        
+        }];        
         cboColorAttr.selectedId = "#dddddd";
-        cboColorAttr.events = {
-            action: doAction
-        };
+        cboColorAttr.events = { action: doAction };
         controlsColumn.add(this._cboColor = new Echo.SelectField(cboColorAttr));
-        
-        this._showTable();
+
+        //create component
+        this._reloadComponent();
     },
 
     
-    _showTable: function() {
-    	
+    _reloadComponent: function() {
+    	//remove row container if it already there
         if  (this._mainSplitPane.children.length > 1) {
             this._mainSplitPane.remove(1);
         }
 
-        var container = new Echo.Row({});
-        this._mainSplitPane.add(container);
+        //create a row container
+        var row = new Echo.Row();
+        this._mainSplitPane.add(row);
         
-        this._component = new My.Component();
-        this._component.set("background", this._cboColor.get("selectedId"));
-        this._component.set("radius", this._chkRadius.get("selected") ? "8px" : null);
-        
-        container.add(this._component);
+        //create and add component
+        var component = new My.Component();
+        component.set("background", this._cboColor.get("selectedId"));
+        component.set("radius", this._chkRadius.get("selected") ? "10px" : null);
+        row.add(component);
     }
 });

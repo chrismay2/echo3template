@@ -1,6 +1,6 @@
 /* 
  * This file is part of the Echo Web Application Framework (hereinafter "Echo").
- * Copyright (C) 2002-2009 NextApp, Inc.
+ * Copyright (C) 2002-2013 NextApp, Inc.
  *
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -37,9 +37,9 @@ import nextapp.echo.webcontainer.service.StaticBinaryService;
 import nextapp.echo.webcontainer.service.StaticTextService;
 
 /**
- * Interactive Test Application <code>WebContainerServlet</code> implementation.
- * using polling as push mechanism
- * (use the JettyInteractiveServlet if you want to try with WebSocket implementation) 
+ * Demo servlet for testing custom components
+ * 
+ * @author chrismay
  */
 public class DemoServlet extends WebContainerServlet {
 
