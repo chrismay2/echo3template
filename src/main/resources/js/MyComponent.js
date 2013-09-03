@@ -65,11 +65,12 @@ My.ComponentSync = Core.extend(Echo.Render.ComponentSync, {
     /** @see Echo.Render.ComponentSync#renderAdd */
     renderAdd: function(update, parentElement) {
         this._div = document.createElement("div");
+        this._div.style.margin = "20px";
         this._div.style.padding = "5px";
         Echo.Sync.RoundedCorner.render(this.component, this._div);
         Echo.Sync.Color.render(this.component.render("background"), this._div, "backgroundColor");
         parentElement.appendChild(this._div);
-        
+
         var text = this.component.render("text", "Hello World!");
 		this._div.appendChild(document.createTextNode(text));
 
