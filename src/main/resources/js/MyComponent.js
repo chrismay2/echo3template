@@ -67,7 +67,7 @@ My.ComponentSync = Core.extend(Echo.Render.ComponentSync, {
         this._div = document.createElement("div");
         this._div.style.margin = "20px";
         this._div.style.padding = "5px";
-        Echo.Sync.RoundedCorner.render(this.component, this._div);
+        Echo.Sync.RoundedCorner.render(this.component.render("radius"), this._div);
         Echo.Sync.Color.render(this.component.render("background"), this._div, "backgroundColor");
         parentElement.appendChild(this._div);
 
