@@ -4,7 +4,6 @@ init = function() {
 
     var app = new TestApp();
     var client = new Echo.FreeClient(app, document.getElementById("rootArea"));
-    client.loadStyleSheet("Default.stylesheet.xml");
     client.init();
 };
 
@@ -32,7 +31,7 @@ TestApp = Core.extend(Echo.Application, {
         });
         contentPane.add(this._mainSplitPane);
         
-        var controlsColumn = new Echo.Column();
+        var controlsColumn = new Echo.Grid();
         this._mainSplitPane.add(controlsColumn);
         
         //define action listener
@@ -42,14 +41,16 @@ TestApp = Core.extend(Echo.Application, {
         };
 
         //checkbox for switching on/off the radius
+        controlsColumn.add(new Echo.Label({text: "Radius"}));
         this._chkRadius = new Echo.CheckBox({
             selected: false,
-            text: "Radius 10px",
+            text: "10px",
             events: { action: doAction }
         });
         controlsColumn.add(this._chkRadius);
 
         //combo box for selecting the color
+        controlsColumn.add(new Echo.Label({text: "Color"}));
         var cboColorAttr = {};
         cboColorAttr.items = [{
             text: "Green",
@@ -64,7 +65,8 @@ TestApp = Core.extend(Echo.Application, {
         cboColorAttr.selectedId = "#dddddd";
         cboColorAttr.events = { action: doAction };
         controlsColumn.add(this._cboColor = new Echo.SelectField(cboColorAttr));
-
+        
+        
         //create component
         this._reloadComponent();
     },
